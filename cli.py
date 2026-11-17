@@ -26,7 +26,7 @@ def explicar(resultado):
     for regra_id, estado, vistas in resultado.rastro:
         fatos = ", ".join(f"{s} = {TEXTO[v]}" for s, v in vistas)
         linhas.append(f"  {regra_id} {estado}: {fatos}")
-    linhas.append("As regras são hipóteses didáticas e não foram validadas por humanos.")
+    linhas.append("As regras são hipóteses didáticas.")
     return linhas
 
 
