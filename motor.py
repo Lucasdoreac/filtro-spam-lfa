@@ -1,7 +1,7 @@
-"""Motor de inferência: encadeamento para trás com três valores (True, False, None).
+"""Encadeamento para trás com três valores: True, False e None (desconhecido).
 
-Não conhece o domínio nem faz entrada e saída. None significa desconhecido e
-nunca é tratado como False.
+False para um símbolo derivado significa apenas que nenhuma regra o demonstrou,
+não que a mensagem seja comprovadamente segura.
 """
 from collections import namedtuple
 
@@ -29,6 +29,8 @@ class Motor:
             return self.fatos[simbolo]
         if simbolo not in self._derivados:
             resposta = self.perguntar(simbolo)
+            if resposta is not True and resposta is not False and resposta is not None:
+                raise ValueError("Respostas devem ser True, False ou None.")
             self.fatos[simbolo] = resposta
             self.perguntados.append(simbolo)
             return resposta

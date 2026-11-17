@@ -1,9 +1,9 @@
-"""Interface de terminal: perguntas ao usuário e apresentação da explicação."""
+"""Interface educativa: recomenda revisão; nunca move ou apaga mensagens."""
 from base import OBJETIVO, PERGUNTAS, REGRAS
 from motor import Motor
 
 RESPOSTAS = {"s": True, "n": False, "?": None}
-TEXTO = {True: "sim", False: "não", None: "?"}
+TEXTO = {True: "sim", False: "não", None: "desconhecido"}
 
 
 def perguntar_console(simbolo, ler=input, escrever=print):
@@ -16,26 +16,36 @@ def perguntar_console(simbolo, ler=input, escrever=print):
 
 def explicar(resultado):
     if resultado.valor is True:
-        linhas = ["Conclusão: spam. Ação recomendada: mover para o lixo."]
+        linhas = [
+            "Conclusão: características compatíveis com spam.",
+            "Ação recomendada: revisar a mensagem antes de decidir o que fazer.",
+            "Nenhuma mensagem foi movida ou apagada. A decisão final é humana.",
+        ]
     elif resultado.valor is False:
-        linhas = ["Conclusão: nenhuma regra confirmou spam. Mantenha na caixa de entrada."]
+        linhas = [
+            "Conclusão: nenhuma regra confirmou spam.",
+            "Isso NÃO garante que a mensagem seja segura. Revise se necessário.",
+        ]
     else:
-        faltam = [s for s in resultado.perguntados if s in _desconhecidos(resultado)]
-        linhas = ["Conclusão: inconclusiva. Faltam dados: " + ", ".join(faltam) + "."]
+        faltam = list(dict.fromkeys(
+            simbolo for _, _, vistas in resultado.rastro
+            for simbolo, valor in vistas if valor is None
+        ))
+        linhas = [
+            "Conclusão: inconclusiva. Faltam dados: " + (", ".join(faltam) or "evidências suficientes") + ".",
+            "Não descarte a mensagem automaticamente; faça uma revisão humana.",
+        ]
     linhas.append("Regras verificadas:")
     for regra_id, estado, vistas in resultado.rastro:
         fatos = ", ".join(f"{s} = {TEXTO[v]}" for s, v in vistas)
         linhas.append(f"  {regra_id} {estado}: {fatos}")
-    linhas.append("As regras são hipóteses didáticas.")
+    linhas.append("Limitação: regras são hipóteses didáticas, sem validação empírica.")
     return linhas
 
 
-def _desconhecidos(resultado):
-    return {s for _, _, vistas in resultado.rastro for s, v in vistas if v is None}
-
-
 def main(ler=input, escrever=print):
-    escrever("Filtro de spam por regras. Responda s (sim), n (não) ou ? (não sei).")
+    escrever("Filtro educativo de spam. Responda s (sim), n (não) ou ? (não sei).")
+    escrever("Não insira dados pessoais; a análise é feita com respostas às perguntas.")
     motor = Motor(REGRAS, lambda s: perguntar_console(s, ler, escrever))
     for linha in explicar(motor.consultar(OBJETIVO)):
         escrever(linha)

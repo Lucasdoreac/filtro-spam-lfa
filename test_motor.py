@@ -1,15 +1,13 @@
+"""Testes do motor, da interface e dos limites éticos da classificação."""
 import unittest
 
 from base import OBJETIVO, REGRAS, Regra
-from cli import main, perguntar_console
+from cli import explicar, main, perguntar_console
 from motor import Motor
 
 
 def consultar(respostas, regras=REGRAS, objetivo=OBJETIVO):
-    def perguntar(simbolo):
-        return respostas[simbolo]
-
-    return Motor(regras, perguntar).consultar(objetivo)
+    return Motor(regras, lambda simbolo: respostas[simbolo]).consultar(objetivo)
 
 
 def entradas(*valores):
@@ -21,6 +19,7 @@ class TesteBase(unittest.TestCase):
     def test_tres_regras_com_origem_declarada(self):
         self.assertEqual([r.id for r in REGRAS], ["R1", "R2", "R3"])
         self.assertTrue(all("sem validação" in r.origem for r in REGRAS))
+        self.assertEqual(OBJETIVO, "revisao_recomendada")
 
 
 class TesteMotor(unittest.TestCase):
@@ -80,6 +79,32 @@ class TesteMotor(unittest.TestCase):
         )
         self.assertIsNone(consultar({}, regras, "x").valor)
 
+    def test_resposta_invalida_falha_explicitamente(self):
+        with self.assertRaises(ValueError):
+            Motor(REGRAS, lambda _: "sim").consultar(OBJETIVO)
+
+    def test_nova_consulta_limpa_estado_anterior(self):
+        respostas = {"remetente_desconhecido": True, "link_encurtado": True,
+                     "promessa_ganho_facil": False}
+        motor = Motor(REGRAS, lambda s: respostas[s])
+        self.assertIs(motor.consultar(OBJETIVO).valor, True)
+        respostas["remetente_desconhecido"] = False
+        self.assertIs(motor.consultar(OBJETIVO).valor, False)
+
+    def test_caso_legitimo_com_link_pode_ser_falso_positivo(self):
+        # O motor recomenda revisão, NÃO descarte automático.
+        resultado = consultar({"remetente_desconhecido": True, "link_encurtado": True})
+        self.assertIs(resultado.valor, True)
+        saida = " ".join(explicar(resultado)).lower()
+        self.assertIn("revisar", saida)
+        self.assertIn("nenhuma mensagem foi movida", saida)
+
+    def test_ausencia_de_sinais_nao_prova_seguranca(self):
+        resultado = consultar({"remetente_desconhecido": False,
+                              "promessa_ganho_facil": False})
+        self.assertIs(resultado.valor, False)
+        self.assertIn("não garante", " ".join(explicar(resultado)).lower())
+
 
 class TesteCli(unittest.TestCase):
     def test_aceita_espacos_e_caixa(self):
@@ -96,7 +121,7 @@ class TesteCli(unittest.TestCase):
     def test_consulta_completa_confirmada(self):
         saida = []
         main(entradas("s", "s"), saida.append)
-        self.assertTrue(any("Conclusão: spam" in linha for linha in saida))
+        self.assertTrue(any("revisar" in linha for linha in saida))
 
     def test_consulta_sem_informacao_suficiente(self):
         saida = []
