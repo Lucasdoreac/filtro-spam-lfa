@@ -79,7 +79,7 @@ As regras são **hipóteses didáticas sem validação empírica**. O programa d
 
 **Reflexão individual — a completar separadamente por integrante após o debate:**
 
-- **Lucas Dórea:** registrar a decisão que manteria ou mudaria, o argumento efetivamente ouvido que influenciou sua posição e como verificaria a medida.
+- **Lucas Dórea:** Eu manteria a alternativa B, só alertar e recomendar revisão humana. Apagar uma mensagem legítima é um erro pior e irreversível, enquanto um alerta a mais custa apenas alguns segundos de conferência. Eu verificaria essa escolha contando, numa amostra autorizada de mensagens, quantas legítimas seriam marcadas por R1 ou R2: são os falsos positivos que um descarte automático teria apagado.
 - **Nicolas Angelo:** registrar a decisão que manteria ou mudaria, o argumento efetivamente ouvido que influenciou sua posição e como verificaria a medida.
 - **Deivid Cerqueira:** registrar a decisão que manteria ou mudaria, o argumento efetivamente ouvido que influenciou sua posição e como verificaria a medida.
 
@@ -103,7 +103,7 @@ Foi utilizado **ChatGPT (OpenAI)** para análise do enunciado, revisão e altera
 | --- | --- |
 | Assistir ao vídeo e registrar minuto/segundo e argumento fiel | **Pendente:** sem trecho efetivamente conferido. |
 | Ler artigo e apresentar ideia fiel | **Parcial:** ideia apoiada no resumo publicado; leitura integral ainda não confirmada. |
-| Realizar debate e individualizar reflexão | **Pendente:** alternativas preparadas; argumentação pessoal depende de participação real. |
+| Realizar debate e individualizar reflexão | **Parcial:** reflexão do Lucas registrada; Nicolas e Deivid pendentes. |
 | Executar testes e registrar resultado | **Confirmado:** [GitHub Actions aprovado](https://github.com/Lucasdoreac/filtro-spam-lfa/actions/runs/44200771468) para o commit 3aef6df. |
 | Confirmar outras ferramentas de IA usadas | **Parcial:** ChatGPT declarado; outros usos não confirmados. |
 | Identificar integrantes do grupo | **Confirmado na ficha pública:** Grupo 13 — Lucas Dórea, Nicolas Angelo, Deivid Cerqueira. |
