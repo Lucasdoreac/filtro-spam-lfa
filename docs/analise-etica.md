@@ -9,9 +9,11 @@
 
 ### Artigo científico
 
-Francisco Pires de Lacerda Júnior. *Da proibição à governança: uso ético da inteligência artificial generativa na educação superior — uma revisão integrativa (2023–2026).* Revista Foco, v. 19, n. 8, ago. 2026. [Artigo](https://ojs.focopublicacoes.com.br/foco/article/view/12330) · [DOI](https://doi.org/10.54751/revistafoco.v19n8-017).
+Francisco Pires de Lacerda Júnior. *Da proibição à governança: uso ético da inteligência artificial generativa na educação superior — uma revisão integrativa (2023–2026).* Revista Foco, v. 19, n. 8, e12330, publicado em 07/08/2026. [Artigo](https://ojs.focopublicacoes.com.br/foco/article/view/12330) · [DOI](https://doi.org/10.54751/revistafoco.v19n8-017).
 
-**Questão de integridade acadêmica para a equipe:** declarar com clareza onde a IA generativa foi usada na elaboração do projeto e como o resultado foi conferido, para que a autoria e a responsabilidade pelas escolhas continuem sendo da equipe. No projeto, isso se traduz na declaração de uso de IA da seção 4 e na verificação do código pelos testes automatizados.
+**Resumo (página oficial do artigo):** revisão integrativa qualitativa de 14 estudos científicos e 3 documentos normativos publicados entre jan. 2023 e jul. 2026, examinados por análise temática em cinco eixos: integridade e autoria; desenho da avaliação; letramento em IA e formação docente; governança institucional; e proteção de dados com supervisão humana. O debate deixa de focar só na fraude e passa a **políticas graduadas**, em que a permissão depende da finalidade pedagógica, da **declaração de uso** e da **responsabilização humana**. A proibição geral orienta pouco as práticas reais, e a liberação sem critérios transfere riscos ao estudante e ao professor. O autor propõe uma matriz de governança em cinco movimentos (**definir, ensinar, redesenhar, proteger e acompanhar**) e conclui que o caminho não é aceitar ou banir a IA generativa, mas tornar seus usos **justificáveis, verificáveis e compatíveis com os objetivos de aprendizagem**.
+
+**Questão de integridade acadêmica para a equipe:** seguindo o artigo (declaração de uso e responsabilização humana; usos justificáveis e verificáveis), declarar com clareza onde a IA generativa foi usada na elaboração do projeto e como o resultado foi conferido, para que a autoria e a responsabilidade pelas escolhas continuem sendo da equipe. No projeto, isso se traduz na declaração de uso de IA da seção 4 e na verificação do código pelos testes automatizados.
 
 ### Vídeo
 
