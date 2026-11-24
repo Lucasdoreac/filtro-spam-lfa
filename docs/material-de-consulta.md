@@ -218,22 +218,52 @@ previsoes = modelo.predict(X_teste)
 
 **Lacuna:** a coluna de ética da ficha está vazia, e o relatório ([analise-etica.md](analise-etica.md)) tem itens pendentes.
 
-**Conteúdo pronto (do relatório):**
-- **Privacidade:** só 4 respostas manuais; sem armazenar mensagens, sem banco, sem envio externo. Minimização de dados.
-- **Viés e equidade:** um aviso legítimo de universidade com link curto e remetente novo aciona R1 (falso positivo). Por isso o resultado é recomendação, não descarte.
-- **Transparência:** o rastro mostra regras confirmadas, refutadas e inconclusivas, e avisa que as regras não foram validadas.
-- **Supervisão:** **não move nem apaga** mensagens. A decisão final é humana.
-- **Impacto social:** ajuda a perceber golpes, mas falsos positivos atrasam comunicação e falsos negativos deixam golpes passar.
-- **Dilema:** A, descarte automático (menos esforço, risco de perder mensagem legítima) × **B, alerta + revisão humana (implementada)**, que preserva autonomia e evita perda irreversível.
-- **IA na elaboração:** ChatGPT declarado para análise do enunciado, revisão de código, testes e redação. **Cada integrante deve confirmar o que usou.**
-- **Referências:** Lacerda Júnior, *Da proibição à governança…*, Revista Foco, v. 19, n. 8, 2026 ([DOI](https://doi.org/10.54751/revistafoco.v19n8-017)); vídeo IEA-USP, *O Estado da Arte em Ética na IA*, 2026 ([link](https://www.youtube.com/watch?v=SHDtABmGhNw)).
+### 9.1 Leitura e vídeo
+- **Artigo:** Francisco Pires de Lacerda Júnior, *Da proibição à governança: uso ético da IA generativa na educação superior — revisão integrativa (2023–2026)*, Revista Foco, v. 19, n. 8, 2026 ([DOI](https://doi.org/10.54751/revistafoco.v19n8-017)).
+  - **Ideia central (a partir do resumo):** proibir não resolve. O uso ético exige governança institucional, transparência, integridade e autoria, formação, supervisão humana, proteção de dados e cuidado na avaliação.
+  - **No projeto:** declarar o uso de IA, verificar o que ela produziu e assumir a responsabilidade pelas decisões técnicas.
+- **Vídeo:** IEA-USP, *O Estado da Arte em Ética na Inteligência Artificial*, jun. 2026 ([link](https://www.youtube.com/watch?v=SHDtABmGhNw)). Tema: impactos sociais e responsabilidade institucional da IA.
 
-**PENDENTE — cada integrante (não está feito):**
-- [ ] Assistir ao vídeo da USP e anotar **minuto:segundo** real e o argumento.
-- [ ] Ler o artigo **inteiro**. Hoje a ideia vem só do resumo.
-- [ ] Escrever a **reflexão individual** após o debate (Lucas, Nicolas, Deivid).
-- [ ] Confirmar o envio no **Blackboard**.
-- [ ] Colocar na ficha o link do relatório de ética e a declaração de IA.
+### 9.2 Os 5 eixos (situação → afetados → medida)
+
+| Eixo | Situação concreta | Quem é afetado | Medida adotada ou proposta |
+|---|---|---|---|
+| **Privacidade** | a mensagem pode revelar número, e-mail, relações ou dados privados | remetente e destinatário | só 4 respostas manuais; sem armazenamento, sem banco, sem integração com e-mail; minimização de dados; versão com mensagens reais exige nova revisão (LGPD) |
+| **Viés e equidade** | aviso legítimo de universidade ou organização nova, com link curto e remetente desconhecido, aciona R1 | quem depende da comunicação | resultado é recomendação, não descarte; testes cobrem o falso positivo; antes de uso real, medir erros em amostras de várias origens e rever regras injustas |
+| **Transparência** | usuário recebe alerta sem saber por quê | usuário | rastro mostra regras confirmadas, refutadas e inconclusivas e as premissas; aviso de que as regras não foram validadas |
+| **Supervisão e responsabilidade** | comunicado de trabalho legítimo marcado como suspeito | usuário e remetente | **não move nem apaga** mensagens; decisão final humana; pode responder de novo; equipe revisa regras, testes e documentação |
+| **Impacto social** | alertas ajudam a perceber golpes, mas erram nos dois sentidos | sociedade | limites explícitos; nada de bloqueio definitivo; testar falsos positivos e negativos em amostra autorizada antes de uso fora da sala de aula |
+
+### 9.3 Dilema ético
+- **Pergunta:** o sistema deve descartar automaticamente ou só alertar e pedir revisão humana?
+- **A — descarte automático:** menos esforço manual; risco de **perder mensagem legítima** de forma irreversível, porque os sinais não bastam para separar os casos.
+- **B — alerta + revisão humana (implementada):** mais esforço de avaliação; **preserva a autonomia** e evita perda irreversível.
+- **Para debate:** em que situação a automação poderia agir sem confirmação? Quem responde por uma mensagem legítima perdida?
+
+### 9.4 Declaração de uso de IA
+- **IA incorporada ao projeto:** sistema especialista por regras SE–ENTÃO, com encadeamento para trás. Sem ML, sem ação automática na caixa de e-mail.
+- **Verificação:** 16 testes automatizados; GitHub Actions aprovado (execuções 1 e 2, 17/11/2026). Os testes validam a lógica, **não** a acurácia nem a equidade com mensagens reais.
+- **IA usada na elaboração:** ChatGPT (OpenAI) para análise do enunciado, revisão de código, testes, documentação de riscos e redação. A equipe conferiu o código, os testes e o texto e responde pela entrega.
+
+### 9.5 Texto para a coluna de ética da ficha
+> O Filtro de Spam usa apenas quatro respostas manuais (sim, não ou não sei), sem armazenar mensagens, sem banco de dados e sem envio a serviços externos. As regras são hipóteses didáticas, não validadas com mensagens reais. Um aviso legítimo com link encurtado pode virar falso positivo, por isso o sistema só recomenda revisão humana: nunca move nem apaga mensagens. O rastro mostra quais regras foram confirmadas, refutadas ou ficaram inconclusivas, e "não sei" nunca é tratado como "não". Entre descartar automaticamente e alertar com revisão humana, escolhemos alertar, para preservar a autonomia do usuário e evitar perda irreversível. Usamos o ChatGPT como apoio na análise do enunciado, revisão de código, testes e redação. As regras, a verificação dos testes e a responsabilidade pela entrega são da equipe. Relatório: https://github.com/Lucasdoreac/filtro-spam-lfa/blob/main/docs/analise-etica.md
+
+### 9.6 Reflexão individual (cada um escreve a sua)
+Modelo de 3 frases:
+1. **Decisão:** "Eu manteria (ou mudaria) a alternativa ___ porque ___."
+2. **Argumento que me influenciou:** "O argumento de ___ sobre ___ me fez ___."
+3. **Como verificar:** "Eu verificaria essa medida com ___ (ex.: amostra autorizada de mensagens, contagem de falsos positivos)."
+
+- **Lucas Dórea:** ___
+- **Nicolas Angelo:** ___
+- **Deivid Cerqueira:** ___
+
+### 9.7 Ainda pendente
+- [ ] Minuto:segundo real de um trecho do vídeo e o argumento dito.
+- [ ] Leitura integral do artigo (hoje a ideia vem só do resumo).
+- [ ] Reflexão individual de cada integrante (9.6).
+- [ ] Envio conferido no Blackboard.
+- [ ] Colar o texto 9.5 na coluna de ética da ficha.
 
 ---
 
