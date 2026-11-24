@@ -1,4 +1,4 @@
-# Material de consulta — A1 Sistemas Especialistas (Grupo 13)
+# Referência técnica — Filtro de Spam (Grupo 13)
 
 **UDF · IA e LFA · Profa. Kadidja Valéria** · Grupo 13: Lucas Dórea, Nicolas Angelo, Deivid Cerqueira
 
@@ -157,7 +157,7 @@ Regra("R1", (("remetente_desconhecido", True), ("link_encurtado", True)), "spam"
 
 ## 7. Aprendizado supervisionado e arquitetura híbrida
 
-**Lacuna:** o sistema principal não tem ML, e a 2ª aula cobra a integração de árvore de decisão com regras. **Coberto pelo [notebook do Colab](https://colab.research.google.com/github/Lucasdoreac/filtro-spam-lfa/blob/main/notebook.ipynb)**, seção 7.
+A integração entre a árvore de decisão e as regras é demonstrada no [notebook do Colab](https://colab.research.google.com/github/Lucasdoreac/filtro-spam-lfa/blob/main/notebook.ipynb), seção 7.
 
 - **SE × modelo supervisionado:**
 
@@ -185,9 +185,9 @@ previsoes = modelo.predict(X_teste)
   - `max_depth=2`: limita a árvore, o que reduz overfitting e mantém a árvore legível.
 - **Árvore de decisão:** aprende condições que separam os exemplos em grupos puros (ex.: `horas_estudo ≤ 4,5` → apoio).
 - **Matriz de confusão:** linhas = real, colunas = previsto. **Acurácia** = acertos / total.
-- **Cautela:** 100% em 4 casos **não prova** eficácia real. A amostra é pequena e instável, e o modelo erra fora do domínio de treino.
+- **Limitação:** a amostra fictícia demonstra a integração entre a árvore e o motor de inferência. O desempenho em mensagens reais ainda precisa ser medido.
 - **Arquitetura híbrida:** Fase 1, ML: a árvore prevê um rótulo. Fase 2, SE: **a previsão vira um fato** que alimenta as regras.
-- **No nosso notebook:** árvore treinada com 24 mensagens **fictícias** (atributos: nº de links, termos de urgência, termos de ganho) prevê `suspeita_ml`. Acurácia: 83% em 6 casos de teste (1 suspeita prevista como não suspeita); a árvore aprendeu a olhar só os termos de urgência.
+- **No nosso notebook:** árvore treinada com 18 das 24 mensagens **fictícias** (atributos: nº de links, termos de urgência, termos de ganho) prevê `suspeita_ml`. Acurácia: 83% em 6 casos de teste (1 suspeita prevista como não suspeita); a árvore aprendeu a olhar só os termos de urgência.
   - **R4:** SE `suspeita_ml` = sim E `remetente_desconhecido` = sim ENTÃO `spam`. R3 continua exigindo revisão humana.
   - **Caso H1:** sem sinais informados pelo usuário, R1 e R2 são refutadas, mas a árvore prevê suspeita e R4 confirma → revisão.
   - **Comparação:** mesmos números, mudando só `remetente_desconhecido` para não → R4 é refutada. A regra humana limita o modelo.
