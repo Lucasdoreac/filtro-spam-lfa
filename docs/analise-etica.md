@@ -15,9 +15,12 @@ Francisco Pires de Lacerda Júnior. *Da proibição à governança: uso ético d
 
 ### Vídeo
 
-*O Estado da Arte em Ética na Inteligência Artificial*, Instituto de Estudos Avançados da USP — evento público de 09/06/2026 (2h01), no lançamento do livro *The Palgrave Handbook on the Ethics of Artificial Intelligence*, com Veridiana Cordeiro, Steven Gouveia, João Cortese e Mateus Henrique Amorim; discute impactos sociais, éticos e institucionais da IA. [Gravação no IEA-USP](https://www.iea.usp.br/midiateca/video/videos-2026/o-estado-da-arte-em-etica-na-inteligencia-artificial/).
+*O Estado da Arte em Ética na Inteligência Artificial*, Instituto de Estudos Avançados da USP — evento público de 09/06/2026 (2h01), no lançamento do livro *The Palgrave Handbook on the Ethics of Artificial Intelligence*, com Veridiana Cordeiro, Steven Gouveia, João Cortese e Mateus Henrique Amorim; discute impactos sociais, éticos e institucionais da IA. [Gravação no YouTube](https://www.youtube.com/watch?v=x35_NJfXrpE) · [página no IEA-USP](https://www.iea.usp.br/midiateca/video/videos-2026/o-estado-da-arte-em-etica-na-inteligencia-artificial/).
 
-A apresentação é indicada pela atividade para discutir impactos sociais e responsabilidades institucionais associados à IA.
+**Trechos selecionados (minutagem conferida na transcrição automática da gravação):**
+
+- **00:06:18** — a ética da IA não pode ser reduzida a uma "lista formal de conformidade": além de perguntar se um sistema é exato, justo ou transparente, é preciso ver como as instituições e os incentivos compõem a cena e como a noção de responsabilidade está sendo redesenhada.
+- **01:35:50 a 01:36:55** — ferramentas de IA são vendidas como neutras e como "solução mágica", mas não são neutras nem nos dados nem nos vieses; costumam ser comparadas por falsos positivos e falsos negativos em uma tarefa isolada, enquanto o problema real nunca é uma tarefa só.
 
 ## 2. Descrição e análise ética do projeto
 
@@ -70,6 +73,8 @@ As regras são **hipóteses didáticas sem validação empírica**. O programa d
 **Alternativa B — alerta e revisão humana:** aumenta o esforço de avaliação, mas preserva a autonomia do usuário e reduz o risco de perda irrevogável de mensagens. **Foi a alternativa implementada.**
 
 **Proposta para debate:** em que situações, se houver alguma, a automação poderia agir sem confirmação? Quem responderia por uma mensagem legítima perdida?
+
+**Ideia do vídeo usada no debate:** o trecho de 01:35:50 sustenta a alternativa B. O filtro também é especializado em uma tarefa estreita (quatro sinais) e erra nos dois sentidos; tratá-lo como neutro e deixá-lo descartar mensagens sozinho repetiria o problema apontado no vídeo. Por isso a saída é recomendação, e a decisão fica com uma pessoa.
 
 **Reflexão individual:**
 

@@ -230,7 +230,9 @@ previsoes = modelo.predict(X_teste)
 - **Artigo:** Francisco Pires de Lacerda Júnior, *Da proibição à governança: uso ético da IA generativa na educação superior — revisão integrativa (2023–2026)*, Revista Foco, v. 19, n. 8, ago. 2026 ([artigo](https://ojs.focopublicacoes.com.br/foco/article/view/12330) · [DOI](https://doi.org/10.54751/revistafoco.v19n8-017)).
   - **Questão de integridade acadêmica (pedida no enunciado):** declarar com clareza onde a IA generativa foi usada na elaboração do projeto e como o resultado foi conferido, para que a autoria e a responsabilidade pelas escolhas continuem sendo da equipe.
   - **No projeto:** declarar o uso de IA, verificar o que ela produziu e assumir a responsabilidade pelas decisões técnicas.
-- **Vídeo:** IEA-USP, *O Estado da Arte em Ética na Inteligência Artificial*, evento público de 09/06/2026 (2h01), no lançamento do livro *The Palgrave Handbook on the Ethics of Artificial Intelligence*, com Veridiana Cordeiro, Steven Gouveia, João Cortese e Mateus Henrique Amorim; discute impactos sociais, éticos e institucionais da IA ([gravação no IEA-USP](https://www.iea.usp.br/midiateca/video/videos-2026/o-estado-da-arte-em-etica-na-inteligencia-artificial/)).
+- **Vídeo:** IEA-USP, *O Estado da Arte em Ética na Inteligência Artificial*, evento público de 09/06/2026 (2h01), no lançamento do livro *The Palgrave Handbook on the Ethics of Artificial Intelligence*, com Veridiana Cordeiro, Steven Gouveia, João Cortese e Mateus Henrique Amorim; discute impactos sociais, éticos e institucionais da IA ([YouTube](https://www.youtube.com/watch?v=x35_NJfXrpE) · [IEA-USP](https://www.iea.usp.br/midiateca/video/videos-2026/o-estado-da-arte-em-etica-na-inteligencia-artificial/)).
+  - **00:06:18** — a ética da IA não pode ser reduzida a uma "lista formal de conformidade": além de perguntar se um sistema é exato, justo ou transparente, é preciso ver como as instituições e os incentivos compõem a cena e como a noção de responsabilidade está sendo redesenhada.
+  - **01:35:50 a 01:36:55** — ferramentas de IA são vendidas como neutras e como "solução mágica", mas não são neutras nem nos dados nem nos vieses; costumam ser comparadas por falsos positivos e falsos negativos em uma tarefa isolada, enquanto o problema real nunca é uma tarefa só.
 
 ### 9.2 Os 5 eixos (situação → afetados → medida)
 
@@ -248,6 +250,7 @@ previsoes = modelo.predict(X_teste)
 - **A — descarte automático:** menos esforço manual; risco de **perder mensagem legítima** de forma irreversível, porque os sinais não bastam para separar os casos.
 - **B — alerta + revisão humana (implementada):** mais esforço de avaliação; **preserva a autonomia** e evita perda irreversível.
 - **Para debate:** em que situação a automação poderia agir sem confirmação? Quem responde por uma mensagem legítima perdida?
+- **Ideia do vídeo usada no debate:** o trecho de 01:35:50 sustenta a alternativa B. O filtro também é especializado em uma tarefa estreita (quatro sinais) e erra nos dois sentidos; tratá-lo como neutro e deixá-lo descartar mensagens sozinho repetiria o problema apontado no vídeo. Por isso a saída é recomendação, e a decisão fica com uma pessoa.
 
 ### 9.4 Declaração de uso de IA
 
