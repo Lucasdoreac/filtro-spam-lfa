@@ -1,13 +1,14 @@
 # Material de consulta — A1 Sistemas Especialistas (Grupo 13)
 
 **UDF · IA e LFA · Profa. Kadidja Valéria** · Grupo 13: Lucas Dórea, Nicolas Angelo, Deivid Cerqueira
+
 Cada seção começa com **Lacuna** (o que faltava na documentação) e depois traz o conteúdo que a preenche.
 
 ---
 
 ## 0. Resumo em 1 minuto
 
-- **O quê:** sistema especialista didático em Python para triagem de spam. Sem ML, sem LLM, sem dependências.
+- **O quê:** sistema especialista didático em Python para triagem de spam. O sistema principal não usa ML nem LLM e não tem dependências; o [notebook do Colab](https://colab.research.google.com/github/Lucasdoreac/filtro-spam-lfa/blob/main/notebook.ipynb) demonstra a extensão híbrida com árvore de decisão.
 - **Entrada:** 4 perguntas respondidas com `s` / `n` / `?`.
 - **Base:** 3 regras SE–ENTÃO (R1, R2, R3), declaradas como hipóteses didáticas sem validação empírica.
 - **Motor:** encadeamento **para trás** a partir do objetivo `revisao_recomendada`, com lógica de **3 valores** (sim, não, desconhecido).
@@ -46,6 +47,7 @@ Cada seção começa com **Lacuna** (o que faltava na documentação) e depois t
 **Lacuna:** faltavam a formalização (termos e valores), a origem das regras e a separação entre base e motor.
 
 **Regras (SE–ENTÃO):**
+
 - **R1:** SE `remetente_desconhecido` = sim **E** `link_encurtado` = sim ENTÃO `spam`.
 - **R2:** SE `promessa_ganho_facil` = sim **E** `urgencia` = sim ENTÃO `spam`.
 - **R3:** SE `spam` ENTÃO `revisao_recomendada`.
@@ -71,6 +73,7 @@ Regra("R1", (("remetente_desconhecido", True), ("link_encurtado", True)), "spam"
 **Lacuna:** faltava mostrar o passo a passo, o rastro de cada caso, as condições de parada e o Como?/Por quê?.
 
 ### Algoritmo (`motor.py`, métodos `_valor` e `_avaliar`)
+
 1. Recebe o **objetivo** (`revisao_recomendada`).
 2. Se o símbolo já está na **memória de trabalho** (`self.fatos`), devolve o valor. Por isso **cada fato é perguntado uma única vez**.
 3. Se o símbolo **não é conclusão de nenhuma regra**, é folha: **pergunta ao usuário** e guarda a resposta.
@@ -95,6 +98,7 @@ Regra("R1", (("remetente_desconhecido", True), ("link_encurtado", True)), "spam"
 | D — informação ausente | rem=?, link=s, ganho=n | R1 inconclusiva → R2 refutada → R3 inconclusiva | **inconclusivo**, informa o que falta |
 
 ### Explicação (slide 26)
+
 - **Como?** "A revisão veio de **R3**, apoiada por **R1**, porque remetente desconhecido = sim e link = sim." O CLI imprime isso na seção "Regras verificadas".
 - **Por quê?** "Pergunto sobre o link **porque R1 precisa dessa premissa** para provar spam, que R3 precisa para recomendar revisão."
 - **Honestidade:** o "Por quê?" **não é um comando interativo** no CLI. A justificativa aparece no rastro final, não durante a pergunta. (Os Grupos 23 e 25 implementaram o "Por quê?" interativo.)
@@ -153,7 +157,7 @@ Regra("R1", (("remetente_desconhecido", True), ("link_encurtado", True)), "spam"
 
 ## 7. Aprendizado supervisionado e arquitetura híbrida
 
-**Lacuna:** o projeto **não tem ML**, mas a 2ª aula cobra a integração de árvore de decisão com regras.
+**Lacuna:** o sistema principal não tem ML, e a 2ª aula cobra a integração de árvore de decisão com regras. **Coberto pelo [notebook do Colab](https://colab.research.google.com/github/Lucasdoreac/filtro-spam-lfa/blob/main/notebook.ipynb)**, seção 7.
 
 - **SE × modelo supervisionado:**
 
@@ -183,7 +187,10 @@ previsoes = modelo.predict(X_teste)
 - **Matriz de confusão:** linhas = real, colunas = previsto. **Acurácia** = acertos / total.
 - **Cautela:** 100% em 4 casos **não prova** eficácia real. A amostra é pequena e instável, e o modelo erra fora do domínio de treino.
 - **Arquitetura híbrida:** Fase 1, ML: a árvore prevê um rótulo. Fase 2, SE: **a previsão vira um fato** que alimenta as regras.
-- **Como seria no nosso projeto:** uma árvore treinada com mensagens rotuladas preveria `suspeita_ml` (s/n) a partir de atributos como número de links ou palavras de urgência. Uma regra nova faria: SE `suspeita_ml` = sim E `remetente_desconhecido` = sim ENTÃO `spam`. R3 continuaria exigindo revisão humana.
+- **No nosso notebook:** árvore treinada com 24 mensagens **fictícias** (atributos: nº de links, termos de urgência, termos de ganho) prevê `suspeita_ml`. Acurácia: 83% em 6 casos de teste (1 suspeita prevista como não suspeita); a árvore aprendeu a olhar só os termos de urgência.
+  - **R4:** SE `suspeita_ml` = sim E `remetente_desconhecido` = sim ENTÃO `spam`. R3 continua exigindo revisão humana.
+  - **Caso H1:** sem sinais informados pelo usuário, R1 e R2 são refutadas, mas a árvore prevê suspeita e R4 confirma → revisão.
+  - **Comparação:** mesmos números, mudando só `remetente_desconhecido` para não → R4 é refutada. A regra humana limita o modelo.
 - **Questões de fechamento:**
   - Que parte aprende com os dados? → **o modelo** (árvore).
   - Que parte aplica as regras humanas? → **o motor de inferência**.
@@ -216,9 +223,10 @@ previsoes = modelo.predict(X_teste)
 
 ## 9. Ética e uso de IA
 
-**Lacuna:** a coluna de ética da ficha está vazia, e o relatório ([analise-etica.md](analise-etica.md)) tem itens pendentes.
+**Lacuna:** a coluna de ética da ficha estava vazia. Relatório completo: [analise-etica.md](analise-etica.md).
 
 ### 9.1 Leitura e vídeo
+
 - **Artigo:** Francisco Pires de Lacerda Júnior, *Da proibição à governança: uso ético da IA generativa na educação superior — revisão integrativa (2023–2026)*, Revista Foco, v. 19, n. 8, 2026 ([DOI](https://doi.org/10.54751/revistafoco.v19n8-017)).
   - **Ideia central (a partir do resumo):** proibir não resolve. O uso ético exige governança institucional, transparência, integridade e autoria, formação, supervisão humana, proteção de dados e cuidado na avaliação.
   - **No projeto:** declarar o uso de IA, verificar o que ela produziu e assumir a responsabilidade pelas decisões técnicas.
@@ -235,36 +243,25 @@ previsoes = modelo.predict(X_teste)
 | **Impacto social** | alertas ajudam a perceber golpes, mas erram nos dois sentidos | sociedade | limites explícitos; nada de bloqueio definitivo; testar falsos positivos e negativos em amostra autorizada antes de uso fora da sala de aula |
 
 ### 9.3 Dilema ético
+
 - **Pergunta:** o sistema deve descartar automaticamente ou só alertar e pedir revisão humana?
 - **A — descarte automático:** menos esforço manual; risco de **perder mensagem legítima** de forma irreversível, porque os sinais não bastam para separar os casos.
 - **B — alerta + revisão humana (implementada):** mais esforço de avaliação; **preserva a autonomia** e evita perda irreversível.
 - **Para debate:** em que situação a automação poderia agir sem confirmação? Quem responde por uma mensagem legítima perdida?
 
 ### 9.4 Declaração de uso de IA
-- **IA incorporada ao projeto:** sistema especialista por regras SE–ENTÃO, com encadeamento para trás. Sem ML, sem ação automática na caixa de e-mail.
+
+- **IA incorporada ao projeto:** sistema especialista por regras SE–ENTÃO, com encadeamento para trás; sem ação automática na caixa de e-mail. O ML aparece só no notebook (árvore com dados fictícios e regra R4).
 - **Verificação:** 16 testes automatizados; GitHub Actions aprovado (execuções 1 e 2, 17/11/2026). Os testes validam a lógica, **não** a acurácia nem a equidade com mensagens reais.
-- **IA usada na elaboração:** ChatGPT (OpenAI) para análise do enunciado, revisão de código, testes, documentação de riscos e redação. A equipe conferiu o código, os testes e o texto e responde pela entrega.
+- **IA usada na elaboração:** ChatGPT (OpenAI) e Claude (Anthropic) para análise do enunciado, revisão de código, testes, documentação de riscos, redação, material de consulta e notebook. A equipe conferiu o código, os testes e o texto e responde pela entrega.
 
 ### 9.5 Texto para a coluna de ética da ficha
-> O Filtro de Spam usa apenas quatro respostas manuais (sim, não ou não sei), sem armazenar mensagens, sem banco de dados e sem envio a serviços externos. As regras são hipóteses didáticas, não validadas com mensagens reais. Um aviso legítimo com link encurtado pode virar falso positivo, por isso o sistema só recomenda revisão humana: nunca move nem apaga mensagens. O rastro mostra quais regras foram confirmadas, refutadas ou ficaram inconclusivas, e "não sei" nunca é tratado como "não". Entre descartar automaticamente e alertar com revisão humana, escolhemos alertar, para preservar a autonomia do usuário e evitar perda irreversível. Usamos o ChatGPT como apoio na análise do enunciado, revisão de código, testes e redação. As regras, a verificação dos testes e a responsabilidade pela entrega são da equipe. Relatório: https://github.com/Lucasdoreac/filtro-spam-lfa/blob/main/docs/analise-etica.md
+> O Filtro de Spam usa apenas quatro respostas manuais (sim, não ou não sei), sem armazenar mensagens, sem banco de dados e sem envio a serviços externos. As regras são hipóteses didáticas, não validadas com mensagens reais. Um aviso legítimo com link encurtado pode virar falso positivo, por isso o sistema só recomenda revisão humana: nunca move nem apaga mensagens. O rastro mostra quais regras foram confirmadas, refutadas ou ficaram inconclusivas, e "não sei" nunca é tratado como "não". Entre descartar automaticamente e alertar com revisão humana, escolhemos alertar, para preservar a autonomia do usuário e evitar perda irreversível. Usamos o ChatGPT e o Claude como apoio na análise do enunciado, revisão de código, testes e redação. As regras, a verificação dos testes e a responsabilidade pela entrega são da equipe. Relatório: https://github.com/Lucasdoreac/filtro-spam-lfa/blob/main/docs/analise-etica.md
 
-### 9.6 Reflexão individual (cada um escreve a sua)
-Modelo de 3 frases:
-1. **Decisão:** "Eu manteria (ou mudaria) a alternativa ___ porque ___."
-2. **Argumento que me influenciou:** "O argumento de ___ sobre ___ me fez ___."
-3. **Como verificar:** "Eu verificaria essa medida com ___ (ex.: amostra autorizada de mensagens, contagem de falsos positivos)."
+### 9.6 Reflexões individuais
 
 - **Lucas Dórea:** Eu manteria a alternativa B, só alertar e recomendar revisão humana. Apagar uma mensagem legítima é um erro pior e irreversível, enquanto um alerta a mais custa apenas alguns segundos de conferência. Eu verificaria essa escolha contando, numa amostra autorizada de mensagens, quantas legítimas seriam marcadas por R1 ou R2: são os falsos positivos que um descarte automático teria apagado.
-- **Nicolas Angelo:** ___
-- **Deivid Cerqueira:** ___
-
-### 9.7 Ainda pendente
-- [ ] Minuto:segundo real de um trecho do vídeo e o argumento dito.
-- [ ] Leitura integral do artigo (hoje a ideia vem só do resumo).
-- [x] Reflexão individual do Lucas (9.6).
-- [ ] Reflexão individual do Nicolas e do Deivid (9.6).
-- [ ] Envio conferido no Blackboard.
-- [ ] Colar o texto 9.5 na coluna de ética da ficha.
+- **Deivid Cerqueira:** Eu manteria a alternativa B, pois alertar e recomendar revisão humana protege comunicações legítimas sem entregar ao sistema uma decisão irreversível. A discussão sobre falsos positivos e sobre a responsabilidade pelo descarte me fez perceber que a eficiência da automação não deve prevalecer sobre o custo de uma mensagem importante perdida. Eu verificaria essa medida com uma amostra autorizada de mensagens reais, comparando alertas com situações confirmadas e acompanhando a quantidade de falsos positivos e falsos negativos.
 
 ---
 
@@ -274,19 +271,19 @@ Modelo de 3 frases:
 
 | Técnica | Grupos | Grupo 13 |
 |---|---|---|
-| Encadeamento para trás | 6 (frente + trás), 13 | ✅ |
+| Encadeamento para trás | 6 (frente + trás), 13 | sim |
 | Encadeamento para frente | 5, 7, 8, 11, 14, 15, 16, 18, 20, 23, 24, 25, 26 | — |
-| '?' tratado como desconhecido | 5, 13, 15, 23, 25 | ✅ 3 valores |
-| Fator de certeza (MYCIN) | 6, 20 | ❌ |
-| Híbrido com árvore de decisão | 5, 6, 10, 14, 15, 16, 23, 25 | ❌ |
-| Outro ML ou LLM | 20 (TF-IDF + reg. logística), 12 (Gemini), 26 (RAG + juiz LLM) | ❌ |
+| '?' tratado como desconhecido | 5, 13, 15, 23, 25 | sim (3 valores) |
+| Fator de certeza (MYCIN) | 6, 20 | não |
+| Híbrido com árvore de decisão | 5, 6, 10, 14, 15, 16, 23, 25 | sim, no notebook (R4, dados fictícios) |
+| Outro ML ou LLM | 20 (TF-IDF + reg. logística), 12 (Gemini), 26 (RAG + juiz LLM) | não |
 | Conflito por prioridade ou especificidade | 5 (especificidade), 23 e 25 (prioridade) | ordem fixa |
 | Como? / Por quê? interativo | 23, 25 | só Como? (rastro) |
-| Testes automatizados (declarados na ficha) | 5 (3 asserts), 20 (40+), 24 (14), 25 (12) | ✅ 16 + CI |
+| Testes automatizados (declarados na ficha) | 5 (3 asserts), 20 (40+), 24 (14), 25 (12) | sim (16 + CI) |
 
 - **Projetos parecidos (filtro de mensagens):** 9 (R1/R3 quase iguais), 11, 18, 20, 23.
 - **Nossos pontos fortes:** lógica de 3 valores, controle de ciclo, curto-circuito, 16 testes com CI, limites declarados, relatório de ética separado.
-- **Pontos fracos:** sem ML (tema da 2ª aula), sem CF, sem "Por quê?" interativo, só 3 regras, coluna de ética da ficha vazia.
+- **Pontos fracos:** sem CF, sem "Por quê?" interativo, só 3 regras; o ML existe só no notebook e com dados fictícios.
 
 ---
 
@@ -301,4 +298,5 @@ Modelo de 3 frases:
 - **O que acontece com ciclo de regras?** O motor detecta o símbolo no caminho e devolve inconclusivo (`test_ciclo_termina_como_inconclusivo`).
 - **Por que não descartar automaticamente?** Falso positivo apagaria mensagem legítima de forma irreversível. Escolhemos a alternativa B do dilema.
 - **Onde estão base, motor e explicação?** `base.py`, `motor.py` e `cli.py` (`explicar`).
-- **Como rodar?** `python cli.py` e `python -m unittest discover -v` (Python 3.9+).
+- **Onde está o aprendizado de máquina?** No notebook do Colab: a árvore prevê `suspeita_ml`, que vira fato para a R4. O sistema principal continua só com regras.
+- **Como rodar?** `python cli.py` e `python -m unittest discover -v` (Python 3.9+), ou o [notebook no Colab](https://colab.research.google.com/github/Lucasdoreac/filtro-spam-lfa/blob/main/notebook.ipynb).
