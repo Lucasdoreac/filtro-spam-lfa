@@ -254,14 +254,15 @@ Modelo de 3 frases:
 2. **Argumento que me influenciou:** "O argumento de ___ sobre ___ me fez ___."
 3. **Como verificar:** "Eu verificaria essa medida com ___ (ex.: amostra autorizada de mensagens, contagem de falsos positivos)."
 
-- **Lucas Dórea:** ___
+- **Lucas Dórea:** Eu manteria a alternativa B, só alertar e recomendar revisão humana. Apagar uma mensagem legítima é um erro pior e irreversível, enquanto um alerta a mais custa apenas alguns segundos de conferência. Eu verificaria essa escolha contando, numa amostra autorizada de mensagens, quantas legítimas seriam marcadas por R1 ou R2: são os falsos positivos que um descarte automático teria apagado.
 - **Nicolas Angelo:** ___
 - **Deivid Cerqueira:** ___
 
 ### 9.7 Ainda pendente
 - [ ] Minuto:segundo real de um trecho do vídeo e o argumento dito.
 - [ ] Leitura integral do artigo (hoje a ideia vem só do resumo).
-- [ ] Reflexão individual de cada integrante (9.6).
+- [x] Reflexão individual do Lucas (9.6).
+- [ ] Reflexão individual do Nicolas e do Deivid (9.6).
 - [ ] Envio conferido no Blackboard.
 - [ ] Colar o texto 9.5 na coluna de ética da ficha.
 
