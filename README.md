@@ -45,3 +45,5 @@ Nenhuma mensagem foi movida ou apagada. A decisão final é humana.
 **Privacidade:** as respostas são processadas na memória da execução, sem banco de dados, coleta de mensagens ou envio a serviços externos no código atual. Não forneça dados pessoais nas respostas. **Transparência:** a saída exibe as regras examinadas e as premissas. **Supervisão:** toda decisão de exclusão é humana.
 
 Para a análise ética, veja [docs/analise-etica.md](docs/analise-etica.md). Evidências de execução e validação empírica exigem coleta e registro à parte.
+
+**Material de consulta (A1):** [docs/material-de-consulta.md](docs/material-de-consulta.md) — descrição do SE, regras, motor com rastros, testes, ML híbrido, teoria das aulas, ética e comparação com a turma.
