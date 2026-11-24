@@ -9,13 +9,13 @@
 
 ### Artigo científico
 
-Francisco Pires de Lacerda Júnior. *Da proibição à governança: uso ético da inteligência artificial generativa na educação superior — uma revisão integrativa (2023–2026).* Revista Foco, v. 19, n. 8, 2026. [DOI](https://doi.org/10.54751/revistafoco.v19n8-017).
+Francisco Pires de Lacerda Júnior. *Da proibição à governança: uso ético da inteligência artificial generativa na educação superior — uma revisão integrativa (2023–2026).* Revista Foco, v. 19, n. 8, ago. 2026. [Artigo](https://ojs.focopublicacoes.com.br/foco/article/view/12330) · [DOI](https://doi.org/10.54751/revistafoco.v19n8-017).
 
-**Ideia extraída do resumo publicado:** o uso ético de IA generativa na educação superior não se resolve por mera proibição; requer práticas de governança institucional, transparência e integridade/autoria acadêmica, formação e supervisão humana, bem como atenção à proteção de dados e à avaliação. No projeto, isso se traduz em declarar claramente o uso de IA na produção dos materiais, verificar seu conteúdo e assumir responsabilidade pelas decisões técnicas.
+**Questão de integridade acadêmica para a equipe:** declarar com clareza onde a IA generativa foi usada na elaboração do projeto e como o resultado foi conferido, para que a autoria e a responsabilidade pelas escolhas continuem sendo da equipe. No projeto, isso se traduz na declaração de uso de IA da seção 4 e na verificação do código pelos testes automatizados.
 
 ### Vídeo
 
-*O Estado da Arte em Ética na Inteligência Artificial*, Instituto de Estudos Avançados da USP, gravação de junho de 2026. [Vídeo](https://www.youtube.com/watch?v=SHDtABmGhNw).
+*O Estado da Arte em Ética na Inteligência Artificial*, Instituto de Estudos Avançados da USP — evento público de 09/06/2026 (2h01), no lançamento do livro *The Palgrave Handbook on the Ethics of Artificial Intelligence*, com Veridiana Cordeiro, Steven Gouveia, João Cortese e Mateus Henrique Amorim; discute impactos sociais, éticos e institucionais da IA. [Gravação no IEA-USP](https://www.iea.usp.br/midiateca/video/videos-2026/o-estado-da-arte-em-etica-na-inteligencia-artificial/).
 
 A apresentação é indicada pela atividade para discutir impactos sociais e responsabilidades institucionais associados à IA.
 
@@ -102,6 +102,6 @@ Foram utilizados **ChatGPT (OpenAI)** e **Claude (Anthropic)** para análise do 
 - [test_motor.py](../test_motor.py) — testes automatizados.
 - [GitHub Actions: testes concluídos com sucesso](https://github.com/Lucasdoreac/filtro-spam-lfa/actions/runs/44200771468).
 - [Artigo — DOI](https://doi.org/10.54751/revistafoco.v19n8-017).
-- [Vídeo — USP](https://www.youtube.com/watch?v=SHDtABmGhNw).
+- [Vídeo — IEA-USP](https://www.iea.usp.br/midiateca/video/videos-2026/o-estado-da-arte-em-etica-na-inteligencia-artificial/).
 
 *Documento acadêmico do Grupo 13.*
