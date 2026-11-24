@@ -26,7 +26,7 @@ Francisco Pires de Lacerda Júnior. *Da proibição à governança: uso ético d
 
 ## 2. Descrição e análise ética do projeto
 
-O **Filtro de Spam** é um sistema especialista didático em Python. Uma pessoa responde a quatro perguntas sobre uma mensagem: se o remetente é desconhecido, se há link encurtado ou duvidoso, se há promessa de ganho fácil e se existe pressão por resposta imediata. O motor usa **encadeamento para trás** para aplicar regras explícitas e apresenta um rastro explicativo. A conclusão é uma recomendação de **revisão humana**, sem mover ou excluir mensagens. Não há modelo preditivo treinado nem leitura automática de e-mails.
+O **Filtro de Spam** é um sistema especialista didático em Python. Uma pessoa responde a quatro perguntas sobre uma mensagem: se o remetente é desconhecido, se há link encurtado ou duvidoso, se há promessa de ganho fácil e se existe pressão por resposta imediata. O motor usa **encadeamento para trás** para aplicar regras explícitas e apresenta um rastro explicativo. A conclusão é uma recomendação de **revisão humana**, sem mover ou excluir mensagens. No sistema principal não há modelo preditivo treinado nem leitura automática de e-mails: as recomendações de R1 a R3 decorrem **só de regras da equipe**. No notebook do Colab, a regra R4 depende também da **previsão de uma árvore de decisão** treinada com dados fictícios.
 
 ### Regras implementadas
 
@@ -100,7 +100,7 @@ Foram utilizados **ChatGPT (OpenAI)** e **Claude (Anthropic)** para análise do 
 
 ## 5. Ficha de avaliação
 
-**Ficha de Avaliação A1 — Grupo 13:** [Google Docs da turma](https://docs.google.com/document/d/1P_XmJUnCDx5PEWRnfW2X_fXG95Sl9gblc_ZYvFajHSA/edit?tab=t.0), com descrição técnica, regras, motor e link do repositório preenchidos. As colunas de notas e observações da professora não devem ser preenchidas pela equipe.
+**Ficha de Avaliação A1 — Grupo 13:** [Google Docs da turma](https://docs.google.com/document/d/1P_XmJUnCDx5PEWRnfW2X_fXG95Sl9gblc_ZYvFajHSA/edit?tab=t.0), com descrição técnica, regras, motor, link do repositório e coluna de ética preenchidos. As colunas de notas e observações da professora não devem ser preenchidas pela equipe.
 
 ### Referências técnicas
 

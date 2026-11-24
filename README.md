@@ -1,10 +1,10 @@
 # Filtro de spam — sistema especialista (LFA/UDF)
 
-Protótipo didático em **Python**, com **encadeamento para trás** e regras SE–ENTÃO. Não utiliza modelo de linguagem nem aprendizado de máquina. As regras são hipóteses da equipe, ainda **sem validação empírica**.
+Protótipo didático em **Python**, com **encadeamento para trás** e regras SE–ENTÃO. O sistema principal não utiliza modelo de linguagem nem aprendizado de máquina; o notebook demonstra, à parte, uma extensão híbrida com árvore de decisão. As regras são hipóteses da equipe, ainda **sem validação empírica**.
 
 ## Executar
 
-Requer Python 3.9+; não há dependências externas.
+Requer Python 3.9+; o sistema não tem dependências externas. O notebook usa pandas e scikit-learn, já instalados no Colab.
 
 ```bash
 python cli.py
@@ -37,6 +37,8 @@ Nenhuma mensagem foi movida ou apagada. A decisão final é humana.
 - `motor.py`: inferência de três valores, trilha de regras, controle de ciclos.
 - `cli.py`: interação e justificativa textual.
 - `test_motor.py`: testes automatizados, incluindo cenários de falso positivo.
+- `notebook.ipynb`: demonstração completa no Colab, com a extensão híbrida (regra R4) e a cola da prova.
+- `docs/`: relatório de ética e material de consulta.
 
 ## Limites e uso responsável
 
