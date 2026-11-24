@@ -265,6 +265,7 @@ previsoes = modelo.predict(X_teste)
 ### 9.6 Reflexões individuais
 
 - **Lucas Dórea:** Eu manteria a alternativa B, só alertar e recomendar revisão humana. Apagar uma mensagem legítima é um erro pior e irreversível, enquanto um alerta a mais custa apenas alguns segundos de conferência. Eu verificaria essa escolha contando, numa amostra autorizada de mensagens, quantas legítimas seriam marcadas por R1 ou R2: são os falsos positivos que um descarte automático teria apagado.
+- **Nicolas Angelo:** Eu manteria a alternativa B, em acordo com a posição do grupo: o sistema deve alertar e recomendar revisão humana, sem descartar mensagens sozinho, porque um falso positivo apagaria uma comunicação legítima de forma irreversível e o filtro só observa quatro sinais. Eu verificaria essa medida acompanhando, numa amostra autorizada de mensagens, os falsos positivos e os falsos negativos do filtro.
 - **Deivid Cerqueira:** Eu manteria a alternativa B, pois alertar e recomendar revisão humana protege comunicações legítimas sem entregar ao sistema uma decisão irreversível. A discussão sobre falsos positivos e sobre a responsabilidade pelo descarte me fez perceber que a eficiência da automação não deve prevalecer sobre o custo de uma mensagem importante perdida. Eu verificaria essa medida com uma amostra autorizada de mensagens reais, comparando alertas com situações confirmadas e acompanhando a quantidade de falsos positivos e falsos negativos.
 
 ---
