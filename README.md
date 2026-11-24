@@ -38,7 +38,7 @@ Nenhuma mensagem foi movida ou apagada. A decisão final é humana.
 - `cli.py`: interação e justificativa textual.
 - `test_motor.py`: testes automatizados, incluindo cenários de falso positivo.
 - `notebook.ipynb`: demonstração completa no Colab, com a extensão híbrida (regra R4) e a cola da prova.
-- `docs/`: relatório de ética e material de consulta.
+- `docs/`: relatório de ética, material de consulta (também em [PDF](docs/material-de-consulta-grupo13.pdf)) e [cola da prova em PDF](docs/cola-a1-grupo13.pdf).
 
 ## Limites e uso responsável
 
