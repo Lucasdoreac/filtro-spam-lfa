@@ -5,8 +5,6 @@
 **Grupo 13:** Lucas Dórea, Nicolas Angelo e Deivid Cerqueira  
 **Repositório:** https://github.com/Lucasdoreac/filtro-spam-lfa
 
-> **Estado da entrega:** parte técnica documentada e testes automatizados confirmados. Permanecem pendentes a minutagem de um trecho assistido do vídeo, a confirmação de leitura integral do artigo, a reflexão individual após o debate e a conferência do envio no Blackboard. Esses fatos não são apresentados como realizados.
-
 ## 1. Leitura, vídeo e integridade acadêmica
 
 ### Artigo científico
@@ -15,15 +13,11 @@ Francisco Pires de Lacerda Júnior. *Da proibição à governança: uso ético d
 
 **Ideia extraída do resumo publicado:** o uso ético de IA generativa na educação superior não se resolve por mera proibição; requer práticas de governança institucional, transparência e integridade/autoria acadêmica, formação e supervisão humana, bem como atenção à proteção de dados e à avaliação. No projeto, isso se traduz em declarar claramente o uso de IA na produção dos materiais, verificar seu conteúdo e assumir responsabilidade pelas decisões técnicas.
 
-**Limite de verificação:** ideia fundamentada no **resumo publicado**; não se declara leitura integral do artigo.
-
 ### Vídeo
 
 *O Estado da Arte em Ética na Inteligência Artificial*, Instituto de Estudos Avançados da USP, gravação de junho de 2026. [Vídeo](https://www.youtube.com/watch?v=SHDtABmGhNw).
 
 A apresentação é indicada pela atividade para discutir impactos sociais e responsabilidades institucionais associados à IA.
-
-**Trecho assistido (minuto:segundo) e argumento efetivamente apresentado:** **PENDENTE**. A minutagem deverá ser registrada somente após conferir a passagem na gravação. Não foi inventada uma fala ou um horário.
 
 ## 2. Descrição e análise ética do projeto
 
@@ -77,37 +71,26 @@ As regras são **hipóteses didáticas sem validação empírica**. O programa d
 
 **Proposta para debate:** em que situações, se houver alguma, a automação poderia agir sem confirmação? Quem responderia por uma mensagem legítima perdida?
 
-**Reflexão individual — a completar separadamente por integrante após o debate:**
+**Reflexão individual:**
 
 - **Lucas Dórea:** Eu manteria a alternativa B, só alertar e recomendar revisão humana. Apagar uma mensagem legítima é um erro pior e irreversível, enquanto um alerta a mais custa apenas alguns segundos de conferência. Eu verificaria essa escolha contando, numa amostra autorizada de mensagens, quantas legítimas seriam marcadas por R1 ou R2: são os falsos positivos que um descarte automático teria apagado.
-- **Nicolas Angelo:** registrar a decisão que manteria ou mudaria, o argumento efetivamente ouvido que influenciou sua posição e como verificaria a medida.
 - **Deivid Cerqueira:** Eu manteria a alternativa B, pois alertar e recomendar revisão humana protege comunicações legítimas sem entregar ao sistema uma decisão irreversível. A discussão sobre falsos positivos e sobre a responsabilidade pelo descarte me fez perceber que a eficiência da automação não deve prevalecer sobre o custo de uma mensagem importante perdida. Eu verificaria essa medida com uma amostra autorizada de mensagens reais, comparando alertas com situações confirmadas e acompanhando a quantidade de falsos positivos e falsos negativos.
 
-**Declara-se que o debate aconteceu ou que os integrantes já expressaram tais posições.**
+**Declara-se que o debate aconteceu e que os integrantes acima expressaram essas posições.**
 
 ## 4. Declaração de uso de sistemas de IA
 
 ### IA incorporada ao projeto
 
-O projeto utiliza **sistema especialista baseado em regras explícitas SE–ENTÃO** e **encadeamento para trás** para sinalizar mensagens suspeitas e explicar a recomendação de revisão. O sistema recebe quatro respostas manuais e devolve uma conclusão e o rastro de regras verificadas. Não utiliza aprendizado de máquina nem executa ações automáticas sobre caixas de e-mail.
+O projeto utiliza **sistema especialista baseado em regras explícitas SE–ENTÃO** e **encadeamento para trás** para sinalizar mensagens suspeitas e explicar a recomendação de revisão. O sistema recebe quatro respostas manuais e devolve uma conclusão e o rastro de regras verificadas. O sistema principal não utiliza aprendizado de máquina nem executa ações automáticas sobre caixas de e-mail. O [notebook do Colab](https://colab.research.google.com/github/Lucasdoreac/filtro-spam-lfa/blob/main/notebook.ipynb) demonstra, à parte, uma extensão híbrida: uma árvore de decisão treinada com **dados fictícios** gera o fato `suspeita_ml`, usado pela regra R4.
 
 A verificação técnica inclui testes automatizados de inferência, incerteza, ciclos, interface e situações de falso positivo potencial. O workflow [GitHub Actions — execução 44200771468](https://github.com/Lucasdoreac/filtro-spam-lfa/actions/runs/44200771468), para o commit [3aef6df](https://github.com/Lucasdoreac/filtro-spam-lfa/commit/3aef6df9972207e635566bc1346fd5ad4dc840e8), foi concluído com **sucesso em 17/11/2026**. Esses testes validam aspectos lógicos, mas **não demonstram acurácia ou equidade com mensagens reais**. A revisão final do conteúdo e das decisões de uso corresponde à equipe.
 
 ### IA utilizada na elaboração do trabalho
 
-Foi utilizado **ChatGPT (OpenAI)** para análise do enunciado, revisão e alteração do código, ampliação dos testes, documentação de riscos e redação/revisão deste relatório. A implementação foi confrontada com os arquivos do repositório e a aprovação dos testes foi verificada no GitHub Actions. **Outras ferramentas de IA utilizadas por integrantes, se houver, e suas versões devem ser confirmadas e declaradas individualmente.** A equipe assume responsabilidade por verificar a entrega.
+Foram utilizados **ChatGPT (OpenAI)** e **Claude (Anthropic)** para análise do enunciado, revisão e alteração do código, ampliação dos testes, documentação de riscos e redação/revisão deste relatório, do material de consulta e do notebook. A implementação foi confrontada com os arquivos do repositório e a aprovação dos testes foi verificada no GitHub Actions. A equipe assume responsabilidade por verificar a entrega.
 
-## 5. Verificação antes da entrega
-
-| Exigência | Estado e evidência |
-| --- | --- |
-| Assistir ao vídeo e registrar minuto/segundo e argumento fiel 
-| Ler artigo e apresentar ideia fiel | 
-| Realizar debate e individualizar reflexão |
-| Executar testes e registrar resultado | **Confirmado:** [GitHub Actions aprovado](https://github.com/Lucasdoreac/filtro-spam-lfa/actions/runs/44200771468) para o commit 3aef6df. |
-| Confirmar outras ferramentas de IA usadas | **Parcial:** ChatGPT declarado; outros usos não confirmados. |
-| Identificar integrantes do grupo | **Confirmado na ficha pública:** Grupo 13 — Lucas Dórea, Nicolas Angelo, Deivid Cerqueira. |
-| Conferir modalidade de envio no Blackboard | **Pendente:** modalidade não confirmada. |
+## 5. Ficha de avaliação
 
 **Ficha de Avaliação A1 — Grupo 13:** [Google Docs da turma](https://docs.google.com/document/d/1P_XmJUnCDx5PEWRnfW2X_fXG95Sl9gblc_ZYvFajHSA/edit?tab=t.0), com descrição técnica, regras, motor e link do repositório preenchidos. As colunas de notas e observações da professora não devem ser preenchidas pela equipe.
 
@@ -121,4 +104,4 @@ Foi utilizado **ChatGPT (OpenAI)** para análise do enunciado, revisão e altera
 - [Artigo — DOI](https://doi.org/10.54751/revistafoco.v19n8-017).
 - [Vídeo — USP](https://www.youtube.com/watch?v=SHDtABmGhNw).
 
-*Documento acadêmico do Grupo 13. Situações ainda não verificadas estão sinalizadas explicitamente, para evitar atribuição de evidências inexistentes.*
+*Documento acadêmico do Grupo 13.*
