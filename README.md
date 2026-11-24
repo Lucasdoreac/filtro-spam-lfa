@@ -47,3 +47,5 @@ Nenhuma mensagem foi movida ou apagada. A decisão final é humana.
 Para a análise ética, veja [docs/analise-etica.md](docs/analise-etica.md). Evidências de execução e validação empírica exigem coleta e registro à parte.
 
 **Material de consulta (A1):** [docs/material-de-consulta.md](docs/material-de-consulta.md) — descrição do SE, regras, motor com rastros, testes, ML híbrido, teoria das aulas, ética e comparação com a turma.
+
+**Notebook Colab (A1):** [abrir no Colab](https://colab.research.google.com/github/Lucasdoreac/filtro-spam-lfa/blob/main/notebook.ipynb) — descrição, regras, motor com rastros, casos de teste, comparação com encadeamento para frente, testes, arquitetura híbrida com árvore de decisão (dados fictícios) e ética.
