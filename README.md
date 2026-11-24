@@ -38,7 +38,7 @@ Nenhuma mensagem foi movida ou apagada. A decisão final é humana.
 - `cli.py`: interação e justificativa textual.
 - `test_motor.py`: testes automatizados, incluindo cenários de falso positivo.
 - `notebook.ipynb`: demonstração no Colab com a extensão híbrida (regra R4) e links para o material de consulta.
-- `docs/`: relatório de ética, material de consulta (também em [PDF](docs/material-de-consulta-grupo13.pdf)) e [cola da prova em PDF](docs/cola-a1-grupo13.pdf).
+- `docs/`: [relatório de ética e declaração de uso de IA](docs/analise-etica.md).
 
 ## Limites e uso responsável
 
@@ -48,6 +48,4 @@ Nenhuma mensagem foi movida ou apagada. A decisão final é humana.
 
 Para a análise ética, veja [docs/analise-etica.md](docs/analise-etica.md). Evidências de execução e validação empírica exigem coleta e registro à parte.
 
-**Material de consulta (A1):** [docs/material-de-consulta.md](docs/material-de-consulta.md) — descrição do SE, regras, motor com rastros, testes, ML híbrido, teoria das aulas, ética e comparação com a turma.
-
-**Notebook Colab (A1):** [abrir no Colab](https://colab.research.google.com/github/Lucasdoreac/filtro-spam-lfa/blob/main/notebook.ipynb) — descrição, regras, motor com rastros, casos de teste, comparação com encadeamento para frente, testes, arquitetura híbrida com árvore de decisão (dados fictícios) e ética.
+**Demonstração no Google Colab:** [abrir no Colab](https://colab.research.google.com/github/Lucasdoreac/filtro-spam-lfa/blob/main/notebook.ipynb) — regras, rastros de inferência, testes, comparação com encadeamento para frente e extensão híbrida com árvore de decisão treinada em dados fictícios. No Colab, use **Ambiente de execução → Executar tudo**.
