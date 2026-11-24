@@ -98,11 +98,7 @@ A verificação técnica inclui testes automatizados de inferência, incerteza, 
 
 Foram utilizados **ChatGPT (OpenAI)** e **Claude (Anthropic)** para análise do enunciado, revisão e alteração do código, ampliação dos testes, documentação de riscos e redação/revisão deste relatório, do material de consulta e do notebook. A implementação foi confrontada com os arquivos do repositório e a aprovação dos testes foi verificada no GitHub Actions. A equipe assume responsabilidade por verificar a entrega.
 
-## 5. Ficha de avaliação
-
-**Ficha de Avaliação A1 — Grupo 13:** [Google Docs da turma](https://docs.google.com/document/d/1P_XmJUnCDx5PEWRnfW2X_fXG95Sl9gblc_ZYvFajHSA/edit?tab=t.0), com descrição técnica, regras, motor, link do repositório e coluna de ética preenchidos. As colunas de notas e observações da professora não devem ser preenchidas pela equipe.
-
-### Referências técnicas
+## 5. Referências técnicas
 
 - [base.py](../base.py) — base de conhecimento e regras.
 - [motor.py](../motor.py) — inferência e rastro.
